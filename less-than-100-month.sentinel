@@ -4,7 +4,7 @@ import "tfplan"
 import "tfrun"
 
 # Define the maximum allowed monthly cost
-max_cost = decimal.new("10000.00")
+max_cost = decimal.new("100.00")
 
 # Get the cost estimate from the Terraform run
 cost_estimate = tfrun.cost_estimate
