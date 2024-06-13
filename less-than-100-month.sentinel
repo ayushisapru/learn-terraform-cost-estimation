@@ -1,15 +1,8 @@
-
-import "decimal"
-import "tfplan"
 import "tfrun"
+import "decimal"
 
-# Define the maximum allowed monthly cost
-max_cost = decimal.new("100.00")
+delta_monthly_cost = decimal.new(tfrun.cost_estimate.delta_monthly_cost)
 
-# Get the cost estimate from the Terraform run
-cost_estimate = tfrun.cost_estimate
-
-# Ensure the cost estimate is less than the maximum allowed cost
 main = rule {
-  cost_estimate.monthly_cost < max_cost
+    delta_monthly_cost.less_than(100)
 }
